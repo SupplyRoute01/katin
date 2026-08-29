@@ -186,7 +186,7 @@ const renderProductCurations = async () => {
     curations.forEach((curation) => {
       const featured = data.products[0];
       const limit = Number(curation.dataset.gridLimit) || 5;
-      const remaining = data.products.slice(1, 1 + Math.min(limit, 5));
+      const remaining = data.products.slice(1, 1 + limit);
       const grid = document.createElement('div');
       grid.className = 'product-grid curated-product-grid';
       grid.append(...remaining.map(createProductCard));
