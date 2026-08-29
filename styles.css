@@ -97,25 +97,16 @@ h1, h2, h3, p { margin-top: 0; }
 .founder blockquote { max-width: 34ch; margin: 0 0 30px; padding-left: 22px; border-left: 3px solid var(--orange); font-size: clamp(1.2rem,2vw,1.8rem); line-height: 1.5; }
 .founder .copy { margin: 0; color: var(--cream); }
 
-.collection-heading, .journal-heading { display: grid; grid-template-columns: 1.6fr .7fr; align-items: end; gap: 8vw; padding: 12vh 0 10vh; }
-.collection-heading .copy, .journal-heading .copy { margin: 0 0 1.5vw; }
-.product-grid { display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--ink); }
-.product-card + .product-card { border-left: 1px solid var(--ink); }
-.product-visual { position: relative; width: 100%; aspect-ratio: .84; border: 0; cursor: pointer; overflow: hidden; }
-.product-cream { background: var(--cream); color: var(--ink); }
-.product-orange { background: var(--orange); color: var(--cream); }
-.product-ink { background: var(--ink); color: var(--cream); }
-.product-number, .view-label { position: absolute; z-index: 2; top: 18px; font-family: "Futura", sans-serif; font-size: .58rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-.product-number { left: 18px; }
-.view-label { top: auto; right: 18px; bottom: 18px; }
-.shorts-shape { position: absolute; width: 55%; height: 42%; top: 28%; left: 22.5%; background: currentColor; clip-path: polygon(5% 0,95% 0,100% 91%,55% 100%,50% 48%,45% 100%,0 91%); filter: drop-shadow(0 18px 12px color-mix(in srgb,var(--ink) 35%,transparent)); transition: transform .45s cubic-bezier(.2,.8,.2,1); }
-.shorts-shape::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 7px, color-mix(in srgb,var(--orange) 38%,transparent) 7px 9px); }
-.product-cream .shorts-shape { color: var(--orange); }
-.product-orange .shorts-shape { color: var(--ink); }
-.product-ink .shorts-shape { color: var(--cream); }
-.product-visual:hover .shorts-shape, .product-visual:focus-visible .shorts-shape { transform: rotate(-4deg) scale(1.06); }
-.product-info { display: flex; justify-content: space-between; gap: 20px; padding: 20px 18px 22px; border-top: 1px solid var(--ink); font-size: .7rem; }
-.product-info h3, .product-info p { margin: 0; font-size: inherit; font-weight: 500; }
+.journal-heading { display: grid; grid-template-columns: 1.6fr .7fr; align-items: end; gap: 8vw; padding: 12vh 0 10vh; }
+.journal-heading .copy { margin: 0 0 1.5vw; }
+.product-story-grid { display: grid; grid-template-columns: 1.4fr .7fr; align-items: end; gap: 10vw; padding: 14vh 0 12vh; }
+.product-story-copy p { margin-bottom: 24px; }
+.coming-soon { margin: 42px 0 0; color: var(--orange); font-family: "Futura", sans-serif; font-size: .68rem; font-weight: 700; letter-spacing: .18em; }
+.story-principles { list-style: none; display: grid; grid-template-columns: repeat(3,1fr); margin: 0; padding: 0; border: 1px solid var(--ink); }
+.story-principles li { min-height: 180px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; }
+.story-principles li + li { border-left: 1px solid var(--ink); }
+.story-principles span { font-family: "Futura", sans-serif; font-size: .6rem; letter-spacing: .15em; }
+.story-principles strong { max-width: 12ch; font-family: "Futura", sans-serif; font-size: clamp(1.4rem,2.6vw,2.4rem); line-height: 1; text-transform: uppercase; }
 
 .philosophy { background: var(--orange); color: var(--cream); }
 .philosophy .section-index { border-color: var(--cream); }
@@ -147,11 +138,6 @@ footer nav { display: flex; flex-direction: column; gap: 12px; font-size: .78rem
 .footer-bottom p { margin: 0; }
 .footer-bottom a { text-align: right; }
 
-.product-dialog { width: min(92vw,560px); border: 2px solid var(--ink); padding: 56px; background: var(--cream); color: var(--ink); box-shadow: 12px 12px 0 var(--orange); }
-.product-dialog::backdrop { background: color-mix(in srgb,var(--ink) 78%,transparent); }
-.product-dialog h2 { margin-bottom: 24px; font-family: "Futura", "Pretendard", sans-serif; font-size: 2.5rem; font-weight: 700; letter-spacing: -.06em; }
-.dialog-close { position: absolute; top: 14px; right: 18px; border: 0; background: none; cursor: pointer; font-size: 1.7rem; }
-
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
 .reveal.visible { opacity: 1; transform: none; }
 
@@ -176,17 +162,18 @@ footer nav { display: flex; flex-direction: column; gap: 12px; font-size: .78rem
   .spacious { padding: max(15vh,100px) 20px; }
   .section-index { grid-template-columns: 48px 1fr; }
   .display-title { font-size: clamp(3.25rem,15vw,5rem); }
-  .intro-grid, .collection-heading, .journal-heading, .philosophy-grid { grid-template-columns: 1fr; gap: 8vh; padding-top: 10vh; }
+  .intro-grid, .product-story-grid, .journal-heading, .philosophy-grid { grid-template-columns: 1fr; gap: 8vh; padding-top: 10vh; }
   .intro-copy { padding: 0; }
   .brand-facts { grid-template-columns: 1fr; margin-top: 10vh; }
   .founder { min-height: 110svh; padding: 15vh 20px; align-items: flex-end; }
   .founder > img { object-position: 60% center; }
   .founder h2 { font-size: clamp(3rem,14.2vw,4.5rem); }
   .founder blockquote br { display: none; }
-  .collection-heading, .journal-heading { padding-bottom: 8vh; }
-  .product-grid { grid-template-columns: 1fr; }
-  .product-card + .product-card { border-left: 0; border-top: 1px solid var(--ink); }
-  .product-visual { aspect-ratio: 1; }
+  .journal-heading { padding-bottom: 8vh; }
+  .product-story-grid { padding-bottom: 10vh; }
+  .story-principles { grid-template-columns: 1fr; }
+  .story-principles li { min-height: 140px; }
+  .story-principles li + li { border-left: 0; border-top: 1px solid var(--ink); }
   .philosophy-grid { padding-top: 12vh; }
   .journal-item { grid-template-columns: 1fr 28px; gap: 8px; padding: 24px 0; }
   .journal-date, .journal-tag, .journal-item h3 { grid-column: 1; }
@@ -198,7 +185,6 @@ footer nav { display: flex; flex-direction: column; gap: 12px; font-size: .78rem
   .footer-brand { font-size: 5rem; }
   .footer-bottom { grid-template-columns: 1fr; gap: 8px; }
   .footer-bottom a { text-align: left; }
-  .product-dialog { padding: 48px 26px 34px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
