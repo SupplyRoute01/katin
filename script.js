@@ -1,8 +1,6 @@
 const header = document.querySelector('[data-header]');
 const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.site-nav');
-const dialog = document.querySelector('[data-dialog]');
-const dialogColor = document.querySelector('[data-dialog-color]');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const closeMenu = () => {
@@ -38,17 +36,5 @@ if (reduceMotion) {
 
   document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
 }
-
-document.querySelectorAll('[data-product]').forEach((button) => {
-  button.addEventListener('click', () => {
-    dialogColor.textContent = button.dataset.product;
-    dialog.showModal();
-  });
-});
-
-document.querySelector('[data-close]').addEventListener('click', () => dialog.close());
-dialog.addEventListener('click', (event) => {
-  if (event.target === dialog) dialog.close();
-});
 
 document.querySelector('[data-year]').textContent = new Date().getFullYear();
