@@ -151,7 +151,7 @@ h1, h2, h3, p { margin-top: 0; }
 .contact .copy { margin-bottom: 34px; }
 
 footer { min-height: 72vh; padding: 15vh 7vw 5vh; display: grid; grid-template-columns: 1.4fr 1fr .6fr; align-content: space-between; gap: 7vw; background: var(--ink); color: var(--cream); }
-.footer-brand .logo-mark { width: clamp(240px,32vw,520px); }
+.footer-brand .logo-mark { width: clamp(150px,15vw,220px); }
 footer .copy { margin-top: 14px; }
 footer nav { display: flex; flex-direction: column; gap: 12px; font-size: .78rem; }
 .footer-bottom { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr 1fr; padding-top: 24px; border-top: 1px solid var(--cream); font-family: "Futura", sans-serif; font-size: .58rem; letter-spacing: .12em; text-transform: uppercase; }
@@ -205,7 +205,7 @@ footer nav { display: flex; flex-direction: column; gap: 12px; font-size: .78rem
   .contact > img { object-position: 56% center; }
   .contact h2 { font-size: clamp(4rem,18vw,6rem); }
   footer { min-height: 90vh; padding: 15vh 20px 4vh; grid-template-columns: 1fr; align-content: space-between; }
-  .footer-brand .logo-mark { width: min(72vw,300px); }
+  .footer-brand .logo-mark { width: 160px; }
   .footer-bottom { grid-template-columns: 1fr; gap: 8px; }
   .footer-bottom a { text-align: left; }
 }
