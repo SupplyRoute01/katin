@@ -121,3 +121,49 @@ const renderProductGrids = async () => {
 };
 
 renderProductGrids();
+
+const renderLatestStories = async () => {
+  const container = document.querySelector('[data-latest-posts]');
+  if (!container) return;
+
+  try {
+    const response = await fetch(container.dataset.postsSrc, { cache: 'no-store' });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const posts = await response.json();
+    const storyBase = container.dataset.storyBase || '';
+    const latest = posts.slice().sort((a, b) => String(b.date || '').localeCompare(String(a.date || ''))).slice(0, 3);
+
+    const cards = latest.map((post) => {
+      const link = document.createElement('a');
+      link.className = 'journal-item';
+      link.href = post.url ? `${storyBase}${post.url}` : `${storyBase}post.html?id=${encodeURIComponent(post.id || '')}`;
+
+      const date = document.createElement('time');
+      date.className = 'journal-date';
+      date.dateTime = post.date || '';
+      date.textContent = String(post.date || '').replaceAll('-', '.');
+
+      const copy = document.createElement('div');
+      copy.className = 'journal-card-copy';
+      const title = document.createElement('h3');
+      title.textContent = post.title || '(제목 없음)';
+      const summary = document.createElement('p');
+      summary.textContent = post.summary || '';
+      copy.append(title, summary);
+
+      const arrow = document.createElement('span');
+      arrow.setAttribute('aria-hidden', 'true');
+      arrow.textContent = '↗';
+      link.append(date, copy, arrow);
+      return link;
+    });
+    container.replaceChildren(...cards);
+  } catch (error) {
+    const message = document.createElement('p');
+    message.className = 'journal-status';
+    message.textContent = '최신 이야기를 불러오지 못했습니다.';
+    container.replaceChildren(message);
+  }
+};
+
+renderLatestStories();

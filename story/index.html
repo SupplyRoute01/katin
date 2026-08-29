@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="케이튼의 제품과 사람, 로컬의 이야기를 기록합니다.">
+    <meta name="theme-color" content="#f9e8d4">
+    <title>이야기 | Katin</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="story.css">
+    <script src="../script.js" defer></script>
+    <script src="story.js" defer></script>
+  </head>
+  <body class="story-page">
+    <a class="skip-link" href="#main">본문으로 바로가기</a>
+    <header class="site-header solid" data-header>
+      <a class="brand" href="../index.html" aria-label="Katin 홈"><span class="logo-mark" aria-hidden="true"></span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="sr-only">메뉴 열기</span><span></span><span></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="주요 메뉴">
+        <a href="../about.html">내 소개</a><a href="../products.html">제품</a><a href="index.html" aria-current="page">이야기</a><a href="../index.html#contact">연락하기</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="story-hero" aria-labelledby="story-title">
+        <p class="kicker">Katin local journal</p>
+        <h1 id="story-title">파도와 사람,<br>로컬의 기록.</h1>
+        <p class="copy">제품 뒤에 있는 사람과 만드는 과정의 고민을 천천히 쌓아갑니다.</p>
+      </section>
+      <section class="story-index" aria-label="이야기 목록">
+        <div class="story-list" id="story-list" aria-live="polite">
+          <p class="story-status">이야기를 불러오는 중입니다.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-brand" role="img" aria-label="Katin"><span class="logo-mark" aria-hidden="true"></span></div>
+      <p class="copy">파도 밖의 시간을 위해 만든<br>코듀로이 로컬 반바지.</p>
+      <nav aria-label="푸터 메뉴"><a href="../about.html">내 소개</a><a href="../products.html">제품</a><a href="index.html">이야기</a><a href="../index.html#contact">연락하기</a></nav>
+      <div class="footer-bottom"><p>© <span data-year></span> Katin</p><p>Local Journal</p><a href="#main">Back to top ↑</a></div>
+    </footer>
+  </body>
+</html>

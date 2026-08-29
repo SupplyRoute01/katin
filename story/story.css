@@ -1,0 +1,57 @@
+.site-nav a[aria-current="page"]::after { right: 0; }
+.story-hero { min-height: 82svh; display: flex; flex-direction: column; justify-content: flex-end; padding: calc(var(--header-height) + 14vh) 7vw 10vh; border-bottom: 1px solid var(--ink); }
+.story-hero h1 { max-width: 1100px; margin: 0 0 34px; font-family: "Futura", "Futura PT", "Pretendard", sans-serif; font-size: clamp(4rem,9vw,9rem); font-weight: 700; letter-spacing: -.075em; line-height: .92; }
+.story-hero .copy { margin: 0; }
+.story-index { max-width: 1120px; margin: 0 auto; padding: 15vh 7vw; }
+.story-list { border-top: 2px solid var(--ink); }
+.story-card { border-bottom: 1px solid var(--ink); }
+.story-card > a { display: grid; grid-template-columns: 120px 1fr 32px; gap: 4vw; align-items: start; padding: 42px 0; }
+.story-card time { font-family: "Futura", sans-serif; font-size: .64rem; letter-spacing: .1em; }
+.story-card-copy h2 { max-width: 30ch; margin: 0 0 14px; font-size: clamp(1.35rem,2.2vw,2rem); line-height: 1.3; }
+.story-card-copy p { max-width: 40ch; margin: 0; font-size: .88rem; }
+.story-card-arrow { color: var(--orange); font-size: 1.4rem; transition: transform .2s ease; }
+.story-card:hover .story-card-arrow { transform: translate(4px,-4px); }
+.story-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 20px; }
+.story-tag { padding: 3px 10px; border: 1px solid var(--orange); border-radius: 999px; color: var(--orange); font-size: .62rem; }
+.story-status { margin: 0; padding: 48px 0; font-size: .86rem; }
+.post-shell { width: min(100% - 40px,680px); min-height: 100svh; margin: 0 auto; padding: calc(var(--header-height) + 10vh) 0 15vh; }
+.post-top { margin-bottom: 10vh; }
+.story-article header time { color: var(--orange); font-family: "Futura", sans-serif; font-size: .68rem; letter-spacing: .1em; }
+.story-article header h1 { margin: 18px 0 22px; font-family: "Futura", "Futura PT", "Pretendard", sans-serif; font-size: clamp(2.7rem,6vw,4.8rem); font-weight: 700; letter-spacing: -.055em; line-height: 1.06; }
+.post-meta { margin: 0; font-size: .76rem; }
+.post-rule { width: 54px; margin: 48px 0; border: 0; border-top: 3px solid var(--orange); }
+.post-body { font-size: 1.02rem; line-height: 1.95; }
+.post-body p { max-width: 40ch; margin-bottom: 1.7em; }
+.post-body h2 { margin: 2.4em 0 .9em; font-family: "Futura", "Pretendard", sans-serif; font-size: 1.65rem; line-height: 1.35; }
+.post-body ul { margin: 0 0 1.7em 1.2em; padding: 0; }
+.post-body li { margin-bottom: .55em; }
+.post-body li::marker { color: var(--orange); }
+.post-faq { margin-top: 12vh; }
+.post-faq h2 { margin-bottom: 22px; font-family: "Futura", "Pretendard", sans-serif; font-size: 1.6rem; }
+.post-faq details { padding: 18px 0; border-top: 1px solid var(--ink); }
+.post-faq details:last-child { border-bottom: 1px solid var(--ink); }
+.post-faq summary { cursor: pointer; font-weight: 700; }
+.post-faq summary::before { content: "Q. "; color: var(--orange); }
+.post-faq details p { max-width: 40ch; margin: 14px 0 0; }
+.post-pagination { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 12vh; border: 1px solid var(--ink); background: var(--ink); }
+.post-pagination a, .post-pagination > span { min-height: 130px; padding: 22px; background: var(--cream); }
+.post-pagination a:last-child { text-align: right; }
+.post-direction { margin-bottom: 12px; color: var(--orange); font-size: .62rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.post-pagination-title { font-size: .9rem; font-weight: 700; line-height: 1.45; }
+.post-not-found { padding: 10vh 0; }
+.post-not-found h1 { font-size: 2.4rem; }
+
+@media (max-width:760px) {
+  .story-hero { min-height: 76svh; padding: calc(var(--header-height) + 15vh) 20px 8vh; }
+  .story-hero h1 { font-size: clamp(3.7rem,17vw,5.5rem); }
+  .story-index { padding: 15vh 20px; }
+  .story-card > a { grid-template-columns: 1fr 28px; gap: 10px; padding: 30px 0; }
+  .story-card time { grid-column: 1; }
+  .story-card-copy { grid-column: 1; }
+  .story-card-arrow { grid-column: 2; grid-row: 1 / 3; }
+  .post-shell { padding-top: calc(var(--header-height) + 8vh); }
+  .post-top { margin-bottom: 8vh; }
+  .story-article header h1 { font-size: clamp(2.6rem,13vw,4rem); }
+  .post-pagination { grid-template-columns: 1fr; }
+  .post-pagination a:last-child { text-align: left; }
+}

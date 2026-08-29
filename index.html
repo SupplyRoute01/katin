@@ -20,7 +20,7 @@
         <span class="sr-only">메뉴 열기</span><span></span><span></span>
       </button>
       <nav id="site-nav" class="site-nav" aria-label="주요 메뉴">
-        <a href="about.html">내 소개</a><a href="products.html">제품</a><a href="#stories">저널</a><a href="#contact">연락하기</a>
+        <a href="about.html">내 소개</a><a href="products.html">제품</a><a href="story/">이야기</a><a href="#contact">연락하기</a>
       </nav>
     </header>
 
@@ -111,11 +111,10 @@
           <h2 id="stories-title" class="display-title">파도와 사람,<br>로컬의 기록.</h2>
           <p class="copy">만드는 과정과 우리가 사랑하는 장소를 기록합니다.</p>
         </div>
-        <div class="journal-list">
-          <a class="journal-item reveal" href="#contact"><span class="journal-date">2026.08.12</span><h3>첫 번째 로컬, 새벽의 말리부</h3><span class="journal-tag">Places</span><span aria-hidden="true">↗</span></a>
-          <a class="journal-item reveal" href="#contact"><span class="journal-date">2026.07.28</span><h3>코듀로이 한 장이 반바지가 되기까지</h3><span class="journal-tag">Making</span><span aria-hidden="true">↗</span></a>
-          <a class="journal-item reveal" href="#contact"><span class="journal-date">2026.07.03</span><h3>오래 입는 옷에 필요한 세 가지</h3><span class="journal-tag">Uniform</span><span aria-hidden="true">↗</span></a>
+        <div class="journal-list" data-latest-posts data-posts-src="story/posts.json" data-story-base="story/" aria-live="polite">
+          <p class="journal-status">최신 이야기를 불러오는 중입니다.</p>
         </div>
+        <a class="line-link dark journal-more" href="story/">이야기 더 보기 <span aria-hidden="true">→</span></a>
       </section>
 
       <section class="contact photo-panel" id="contact" aria-labelledby="contact-title">
@@ -135,7 +134,7 @@
         <span class="logo-mark" aria-hidden="true"></span>
       </div>
       <p class="copy">파도 밖의 시간을 위해 만든<br>코듀로이 로컬 반바지.</p>
-      <nav aria-label="푸터 메뉴"><a href="about.html">내 소개</a><a href="products.html">제품</a><a href="#stories">저널</a><a href="#contact">연락하기</a></nav>
+      <nav aria-label="푸터 메뉴"><a href="about.html">내 소개</a><a href="products.html">제품</a><a href="story/">이야기</a><a href="#contact">연락하기</a></nav>
       <div class="footer-bottom"><p>© <span data-year></span> Katin</p><p>Photos: Unsplash</p><a href="#home">Back to top ↑</a></div>
     </footer>
 
