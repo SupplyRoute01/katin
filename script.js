@@ -75,6 +75,10 @@ const createProductCard = (product) => {
   titleLink.textContent = product.name;
   title.append(titleLink);
 
+  const tagline = document.createElement('p');
+  tagline.className = 'product-tagline';
+  tagline.textContent = product.tagline || '';
+
   const purchaseRow = document.createElement('div');
   purchaseRow.className = 'product-purchase-row';
 
@@ -90,9 +94,57 @@ const createProductCard = (product) => {
   buyLink.textContent = '구매하기 ↗';
 
   purchaseRow.append(price, buyLink);
-  body.append(label, title, purchaseRow);
+  body.append(label, title, tagline, purchaseRow);
   card.append(imageLink, body);
   return card;
+};
+
+const createFeaturedProduct = (product) => {
+  const feature = document.createElement('article');
+  feature.className = 'featured-product';
+
+  const imageLink = document.createElement('a');
+  imageLink.className = 'featured-product-image';
+  imageLink.href = product.url;
+  imageLink.target = '_blank';
+  imageLink.rel = 'noopener noreferrer';
+  imageLink.setAttribute('aria-label', `${product.name} 구매 페이지 열기`);
+
+  const image = document.createElement('img');
+  image.src = product.image;
+  image.alt = product.name;
+  image.width = 1200;
+  image.height = 1440;
+  imageLink.append(image);
+
+  const content = document.createElement('div');
+  content.className = 'featured-product-content';
+
+  const label = document.createElement('p');
+  label.className = 'product-label';
+  label.textContent = 'Featured · Corduroy Local Shorts';
+
+  const title = document.createElement('h3');
+  title.textContent = product.name;
+
+  const tagline = document.createElement('p');
+  tagline.className = 'featured-product-tagline';
+  tagline.textContent = product.tagline || '';
+
+  const price = document.createElement('p');
+  price.className = 'product-price';
+  price.textContent = formatPrice(product.price);
+
+  const buyLink = document.createElement('a');
+  buyLink.className = 'button featured-buy-button';
+  buyLink.href = product.url;
+  buyLink.target = '_blank';
+  buyLink.rel = 'noopener noreferrer';
+  buyLink.textContent = '구매하기 ↗';
+
+  content.append(label, title, tagline, price, buyLink);
+  feature.append(imageLink, content);
+  return feature;
 };
 
 const renderProductGrids = async () => {
@@ -121,6 +173,37 @@ const renderProductGrids = async () => {
 };
 
 renderProductGrids();
+
+const renderProductCurations = async () => {
+  const curations = document.querySelectorAll('[data-product-curation]');
+  if (!curations.length) return;
+
+  try {
+    const response = await fetch('products.json');
+    if (!response.ok) throw new Error('Product data request failed');
+    const data = await response.json();
+
+    curations.forEach((curation) => {
+      const featured = data.products[0];
+      const limit = Number(curation.dataset.gridLimit) || 5;
+      const remaining = data.products.slice(1, 1 + Math.min(limit, 5));
+      const grid = document.createElement('div');
+      grid.className = 'product-grid curated-product-grid';
+      grid.append(...remaining.map(createProductCard));
+      curation.replaceChildren(createFeaturedProduct(featured), grid);
+      curation.setAttribute('aria-label', `대표 제품 1개와 큐레이션 제품 ${remaining.length}개`);
+    });
+  } catch (error) {
+    curations.forEach((curation) => {
+      const message = document.createElement('p');
+      message.className = 'product-loading';
+      message.textContent = '제품을 불러오지 못했습니다. 잠시 후 다시 시도해주세요.';
+      curation.replaceChildren(message);
+    });
+  }
+};
+
+renderProductCurations();
 
 const renderLatestStories = async () => {
   const container = document.querySelector('[data-latest-posts]');

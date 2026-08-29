@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /story/admin.html
+
+Sitemap: https://katin-ashen.vercel.app/sitemap.xml

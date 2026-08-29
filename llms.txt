@@ -1,0 +1,30 @@
+# Katin
+
+> 서퍼들이 사랑하는 캘리포니아 브랜드 케이튼과 코듀로이 로컬 반바지를 소개하는 한국어 사이트입니다.
+
+## 파는 것
+
+- 케이튼 코듀로이 로컬 반바지
+
+## 주요 페이지
+
+- [홈](https://katin-ashen.vercel.app/)
+- [내 소개](https://katin-ashen.vercel.app/about.html)
+- [제품](https://katin-ashen.vercel.app/products.html)
+- [연락하기](https://katin-ashen.vercel.app/contact.html)
+- [이야기](https://katin-ashen.vercel.app/story/)
+
+## 이야기(블로그)
+
+- [코듀로이 반바지는 여름에도 입을 수 있나요?](https://katin-ashen.vercel.app/story/corduroy-shorts-in-summer.html): 코듀로이는 겨울 소재로 알려졌지만 설계에 따라 여름 반바지로도 입을 수 있습니다. 케이튼 코듀로이 로컬 반바지의 소재와 실루엣, 구매 전 확인할 점을 살펴봅니다.
+- [서퍼들은 왜 코듀로이 반바지를 입나요?](https://katin-ashen.vercel.app/story/why-surfers-wear-corduroy-shorts.html): 서퍼에게 코듀로이는 원단인 동시에 좋은 파도를 떠올리게 하는 말입니다. 코듀로이 반바지가 캘리포니아 서핑 문화와 물 밖의 일상복으로 연결된 배경을 정리합니다.
+- [케이튼은 왜 ‘로컬 쇼츠’라고 부르나요?](https://katin-ashen.vercel.app/story/why-katin-calls-it-local-shorts.html): 케이튼의 ‘로컬 쇼츠’는 해변을 잠시 찾는 여행자보다 같은 동네에서 파도를 기다리는 사람의 일상을 생각한 이름입니다. 이름에 담긴 실루엣과 사용 장면의 기준을 소개합니다.
+- [케이튼은 왜 보이지 않는 곳까지 같은 기준으로 만드나요?](https://katin-ashen.vercel.app/story/why-katin-keeps-same-standard.html): 케이튼은 겉으로 보이는 디자인뿐 아니라 바지 안쪽 봉제와 마감도 같은 기준으로 확인합니다. 오래 입을 수 있는 옷을 만들기 위해 지키는 제품 철학을 소개합니다.
+- [케이튼은 왜 패션 브랜드 디자인을 시작했나요?](https://katin-ashen.vercel.app/story/why-katin-started-fashion-brand.html): 이밀 대표는 가장 자신다운 디자인을 보여줄 수 있는 일이 패션 브랜드 디자인이라고 생각했습니다. 단순한 옷에서 시작해 브랜드의 모든 장면을 만드는 과정입니다.
+- [케이튼은 왜 상세페이지까지 직접 디자인하나요?](https://katin-ashen.vercel.app/story/why-katin-designs-product-pages.html): 케이튼은 제품을 보여주는 상세페이지도 옷과 분리하지 않고 브랜드 디자인의 일부로 봅니다. 시즌 론칭마다 직접 화면을 완성하는 이유와 기준을 설명합니다.
+
+## 작성 기준
+
+- 작성자: 이밀 대표
+- 제품: 케이튼 코듀로이 로컬 반바지
+- 과장된 순위, 출처 없는 수치·효능, 지어낸 후기를 사용하지 않습니다.
