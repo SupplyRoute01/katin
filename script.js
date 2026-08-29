@@ -3,6 +3,7 @@ const menuButton = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.site-nav');
 const dialog = document.querySelector('[data-dialog]');
 const dialogColor = document.querySelector('[data-dialog-color]');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const closeMenu = () => {
   menuButton.setAttribute('aria-expanded', 'false');
@@ -23,16 +24,20 @@ window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 20);
 }, { passive: true });
 
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
+if (reduceMotion) {
+  document.querySelectorAll('.reveal').forEach((element) => element.classList.add('visible'));
+} else {
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
 
-document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+  document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+}
 
 document.querySelectorAll('[data-product]').forEach((button) => {
   button.addEventListener('click', () => {
