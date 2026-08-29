@@ -37,11 +37,14 @@ h1, h2, h3, p { margin-top: 0; }
 }
 .site-header.scrolled { color: var(--ink); background: var(--cream); border-color: var(--ink); }
 .brand, .footer-brand {
-  font-family: "Futura", "Futura PT", "Pretendard", sans-serif;
-  font-weight: 700; letter-spacing: -.07em; line-height: 1;
+  display: inline-flex; align-items: center; color: inherit;
 }
-.brand { font-size: 1.65rem; }
-.brand span, .footer-brand span { margin-left: 3px; font-size: .38em; vertical-align: top; }
+.logo-mark {
+  display: block; width: 112px; aspect-ratio: 3 / 1;
+  background: currentColor;
+  -webkit-mask: url("assets/katin-logo.svg") center / contain no-repeat;
+  mask: url("assets/katin-logo.svg") center / contain no-repeat;
+}
 .site-nav { display: flex; gap: clamp(24px,3vw,52px); font-size: .78rem; font-weight: 600; }
 .site-nav a { position: relative; }
 .site-nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -6px; height: 2px; background: var(--orange); transition: right .25s ease; }
@@ -148,7 +151,7 @@ h1, h2, h3, p { margin-top: 0; }
 .contact .copy { margin-bottom: 34px; }
 
 footer { min-height: 72vh; padding: 15vh 7vw 5vh; display: grid; grid-template-columns: 1.4fr 1fr .6fr; align-content: space-between; gap: 7vw; background: var(--ink); color: var(--cream); }
-.footer-brand { font-size: clamp(4rem,10vw,9rem); }
+.footer-brand .logo-mark { width: clamp(240px,32vw,520px); }
 footer .copy { margin-top: 14px; }
 footer nav { display: flex; flex-direction: column; gap: 12px; font-size: .78rem; }
 .footer-bottom { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr 1fr; padding-top: 24px; border-top: 1px solid var(--cream); font-family: "Futura", sans-serif; font-size: .58rem; letter-spacing: .12em; text-transform: uppercase; }
@@ -161,7 +164,7 @@ footer nav { display: flex; flex-direction: column; gap: 12px; font-size: .78rem
 @media (max-width: 760px) {
   :root { --header-height: 64px; }
   .site-header { padding: 0 20px; }
-  .brand { font-size: 1.4rem; }
+  .brand .logo-mark { width: 88px; }
   .menu-toggle { display: grid; gap: 6px; width: 42px; height: 42px; padding: 13px 7px; border: 0; background: transparent; color: inherit; z-index: 2; }
   .menu-toggle > span:not(.sr-only) { height: 2px; background: currentColor; transition: transform .25s ease; }
   .menu-toggle[aria-expanded="true"] > span:nth-last-child(2) { transform: translateY(4px) rotate(45deg); }
@@ -202,7 +205,7 @@ footer nav { display: flex; flex-direction: column; gap: 12px; font-size: .78rem
   .contact > img { object-position: 56% center; }
   .contact h2 { font-size: clamp(4rem,18vw,6rem); }
   footer { min-height: 90vh; padding: 15vh 20px 4vh; grid-template-columns: 1fr; align-content: space-between; }
-  .footer-brand { font-size: 5rem; }
+  .footer-brand .logo-mark { width: min(72vw,300px); }
   .footer-bottom { grid-template-columns: 1fr; gap: 8px; }
   .footer-bottom a { text-align: left; }
 }
