@@ -36,6 +36,7 @@ h1, h2, h3, p { margin-top: 0; }
   transition: background .35s ease, color .35s ease, border-color .35s ease;
 }
 .site-header.scrolled { color: var(--ink); background: var(--cream); border-color: var(--ink); }
+.site-header.solid { color: var(--ink); background: var(--cream); border-color: var(--ink); }
 .brand, .footer-brand {
   display: inline-flex; align-items: center; color: inherit;
 }
@@ -111,7 +112,10 @@ h1, h2, h3, p { margin-top: 0; }
 .story-principles span { font-family: "Futura", sans-serif; font-size: .6rem; letter-spacing: .15em; }
 .story-principles strong { max-width: 12ch; font-family: "Futura", sans-serif; font-size: clamp(1.4rem,2.6vw,2.4rem); line-height: 1; text-transform: uppercase; }
 .product-grid { display: grid; grid-template-columns: repeat(3,1fr); margin-top: 12vh; border: 1px solid var(--ink); }
+.product-card { min-width: 0; background: var(--cream); }
 .product-card + .product-card { border-left: 1px solid var(--ink); }
+.product-card:nth-child(n+4) { border-top: 1px solid var(--ink); }
+.product-card:nth-child(3n+1):not(:first-child) { border-left: 0; }
 .product-visual { position: relative; aspect-ratio: .84; overflow: hidden; }
 .product-cream { background: var(--cream); color: var(--ink); }
 .product-orange { background: var(--orange); color: var(--cream); }
@@ -127,6 +131,18 @@ h1, h2, h3, p { margin-top: 0; }
 .product-card:hover .shorts-shape { transform: rotate(-4deg) scale(1.06); }
 .product-info { display: flex; justify-content: space-between; gap: 20px; padding: 20px 18px 22px; border-top: 1px solid var(--ink); font-size: .7rem; }
 .product-info h3, .product-info p { margin: 0; font-size: inherit; font-weight: 500; }
+.product-image-link { display: block; aspect-ratio: .84; overflow: hidden; background: color-mix(in srgb,var(--cream) 75%,var(--ink)); }
+.product-image-link img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.product-card:hover .product-image-link img { transform: scale(1.035); }
+.product-card-body { min-height: 220px; display: flex; flex-direction: column; padding: 22px 20px 20px; border-top: 1px solid var(--ink); }
+.product-label { margin: 0 0 14px; color: var(--orange); font-family: "Futura", sans-serif; font-size: .58rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.product-card-body h3 { max-width: 28ch; margin: 0; font-size: clamp(.95rem,1.3vw,1.12rem); font-weight: 600; line-height: 1.45; }
+.product-purchase-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; margin-top: auto; padding-top: 28px; }
+.product-price { margin: 0; font-family: "Futura", "Pretendard", sans-serif; font-size: .82rem; font-weight: 700; }
+.buy-button { flex: none; padding-bottom: 4px; border-bottom: 1px solid var(--ink); font-size: .72rem; font-weight: 700; }
+.buy-button:hover, .buy-button:focus-visible { color: var(--orange); border-color: var(--orange); }
+.product-loading { grid-column: 1 / -1; margin: 0; padding: 48px 20px; font-size: .82rem; }
+.all-products-link { margin-top: 38px; }
 
 .philosophy { background: var(--orange); color: var(--cream); }
 .philosophy .section-index { border-color: var(--cream); }
@@ -179,6 +195,14 @@ footer nav { display: flex; flex-direction: column; gap: 12px; font-size: .78rem
 .personal-promise { min-height: 100svh; display: flex; align-items: center; padding: 15vh 7vw; background: var(--ink); color: var(--cream); }
 .promise-inner { max-width: 1200px; }
 .personal-promise h2 { max-width: 15ch; margin: 0 0 8vh; font-family: "Futura", "Futura PT", "Pretendard", sans-serif; font-size: clamp(3.6rem,8vw,8rem); font-weight: 700; letter-spacing: -.07em; line-height: .96; }
+.products-hero { min-height: 88svh; display: flex; flex-direction: column; justify-content: flex-end; padding: calc(var(--header-height) + 14vh) 7vw 10vh; border-bottom: 1px solid var(--ink); }
+.products-hero h1 { max-width: 1100px; margin: 0; font-family: "Futura", "Futura PT", "Pretendard", sans-serif; font-size: clamp(4rem,9vw,9rem); font-weight: 700; letter-spacing: -.075em; line-height: .92; }
+.products-hero-meta { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 9vh; padding-top: 24px; border-top: 1px solid var(--ink); font-family: "Futura", "Pretendard", sans-serif; font-size: .65rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.products-hero-meta span:nth-child(2) { text-align: center; }
+.products-hero-meta span:last-child { text-align: right; }
+.catalog-heading { display: grid; grid-template-columns: 1.4fr .55fr; align-items: end; gap: 9vw; padding: 12vh 0 0; }
+.catalog-heading .copy { margin: 0 0 1vw; }
+.catalog-grid { margin-top: 12vh; }
 
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
 .reveal.visible { opacity: 1; transform: none; }
@@ -218,7 +242,10 @@ footer nav { display: flex; flex-direction: column; gap: 12px; font-size: .78rem
   .story-principles li + li { border-left: 0; border-top: 1px solid var(--ink); }
   .product-grid { grid-template-columns: 1fr; margin-top: 10vh; }
   .product-card + .product-card { border-left: 0; border-top: 1px solid var(--ink); }
+  .product-card:nth-child(n+4) { border-top: 1px solid var(--ink); }
   .product-visual { aspect-ratio: 1; }
+  .product-image-link { aspect-ratio: 1; }
+  .product-card-body { min-height: 190px; }
   .philosophy-grid { padding-top: 12vh; }
   .journal-item { grid-template-columns: 1fr 28px; gap: 8px; padding: 24px 0; }
   .journal-date, .journal-tag, .journal-item h3 { grid-column: 1; }
@@ -243,6 +270,12 @@ footer nav { display: flex; flex-direction: column; gap: 12px; font-size: .78rem
   .timeline-list p { grid-column: 2; }
   .personal-promise { padding: 15vh 20px; }
   .personal-promise h2 { font-size: clamp(3.25rem,15vw,5rem); }
+  .products-hero { min-height: 82svh; padding: calc(var(--header-height) + 15vh) 20px 8vh; }
+  .products-hero h1 { font-size: clamp(3.7rem,17vw,5.5rem); }
+  .products-hero-meta { grid-template-columns: 1fr; gap: 8px; margin-top: 7vh; }
+  .products-hero-meta span:nth-child(2), .products-hero-meta span:last-child { text-align: left; }
+  .catalog-heading { grid-template-columns: 1fr; gap: 8vh; padding-top: 10vh; }
+  .catalog-grid { margin-top: 10vh; }
 }
 
 @media (prefers-reduced-motion: reduce) {
