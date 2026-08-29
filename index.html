@@ -13,7 +13,9 @@
   <body>
     <a class="skip-link" href="#main">본문으로 바로가기</a>
     <header class="site-header" data-header>
-      <a class="brand" href="#home" aria-label="Katin 홈">Katin<span>®</span></a>
+      <a class="brand" href="#home" aria-label="Katin 홈">
+        <span class="logo-mark" aria-hidden="true"></span>
+      </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
         <span class="sr-only">메뉴 열기</span><span></span><span></span>
       </button>
@@ -145,7 +147,9 @@
     </main>
 
     <footer>
-      <div class="footer-brand">Katin<span>®</span></div>
+      <div class="footer-brand" role="img" aria-label="Katin">
+        <span class="logo-mark" aria-hidden="true"></span>
+      </div>
       <p class="copy">파도 밖의 시간을 위해 만든<br>코듀로이 로컬 반바지.</p>
       <nav aria-label="푸터 메뉴"><a href="#about">브랜드 이야기</a><a href="#products">제품 이야기</a><a href="#stories">저널</a><a href="#contact">연락하기</a></nav>
       <div class="footer-bottom"><p>© <span data-year></span> Katin</p><p>Photos: Unsplash</p><a href="#home">Back to top ↑</a></div>
