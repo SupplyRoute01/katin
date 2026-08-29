@@ -107,6 +107,23 @@ h1, h2, h3, p { margin-top: 0; }
 .story-principles li + li { border-left: 1px solid var(--ink); }
 .story-principles span { font-family: "Futura", sans-serif; font-size: .6rem; letter-spacing: .15em; }
 .story-principles strong { max-width: 12ch; font-family: "Futura", sans-serif; font-size: clamp(1.4rem,2.6vw,2.4rem); line-height: 1; text-transform: uppercase; }
+.product-grid { display: grid; grid-template-columns: repeat(3,1fr); margin-top: 12vh; border: 1px solid var(--ink); }
+.product-card + .product-card { border-left: 1px solid var(--ink); }
+.product-visual { position: relative; aspect-ratio: .84; overflow: hidden; }
+.product-cream { background: var(--cream); color: var(--ink); }
+.product-orange { background: var(--orange); color: var(--cream); }
+.product-ink { background: var(--ink); color: var(--cream); }
+.product-number, .view-label { position: absolute; z-index: 2; top: 18px; font-family: "Futura", sans-serif; font-size: .58rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.product-number { left: 18px; }
+.view-label { top: auto; right: 18px; bottom: 18px; }
+.shorts-shape { position: absolute; width: 55%; height: 42%; top: 28%; left: 22.5%; background: currentColor; clip-path: polygon(5% 0,95% 0,100% 91%,55% 100%,50% 48%,45% 100%,0 91%); filter: drop-shadow(0 18px 12px color-mix(in srgb,var(--ink) 35%,transparent)); transition: transform .45s cubic-bezier(.2,.8,.2,1); }
+.shorts-shape::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent 0 7px, color-mix(in srgb,var(--orange) 38%,transparent) 7px 9px); }
+.product-cream .shorts-shape { color: var(--orange); }
+.product-orange .shorts-shape { color: var(--ink); }
+.product-ink .shorts-shape { color: var(--cream); }
+.product-card:hover .shorts-shape { transform: rotate(-4deg) scale(1.06); }
+.product-info { display: flex; justify-content: space-between; gap: 20px; padding: 20px 18px 22px; border-top: 1px solid var(--ink); font-size: .7rem; }
+.product-info h3, .product-info p { margin: 0; font-size: inherit; font-weight: 500; }
 
 .philosophy { background: var(--orange); color: var(--cream); }
 .philosophy .section-index { border-color: var(--cream); }
@@ -174,6 +191,9 @@ footer nav { display: flex; flex-direction: column; gap: 12px; font-size: .78rem
   .story-principles { grid-template-columns: 1fr; }
   .story-principles li { min-height: 140px; }
   .story-principles li + li { border-left: 0; border-top: 1px solid var(--ink); }
+  .product-grid { grid-template-columns: 1fr; margin-top: 10vh; }
+  .product-card + .product-card { border-left: 0; border-top: 1px solid var(--ink); }
+  .product-visual { aspect-ratio: 1; }
   .philosophy-grid { padding-top: 12vh; }
   .journal-item { grid-template-columns: 1fr 28px; gap: 8px; padding: 24px 0; }
   .journal-date, .journal-tag, .journal-item h3 { grid-column: 1; }
