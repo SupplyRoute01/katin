@@ -26,6 +26,9 @@
 .post-body ul { margin: 0 0 1.7em 1.2em; padding: 0; }
 .post-body li { margin-bottom: .55em; }
 .post-body li::marker { color: var(--orange); }
+.post-body .inline-link, .post-sources a { color: var(--orange); text-decoration: underline; text-underline-offset: .18em; }
+.post-cta { margin-top: 9vh; }
+.post-cta a { display: inline-flex; min-height: 48px; align-items: center; padding: 0 22px; border: 1px solid var(--orange); background: var(--orange); color: var(--cream); font-weight: 700; text-decoration: none; }
 .post-faq { margin-top: 12vh; }
 .post-faq h2 { margin-bottom: 22px; font-family: "Futura", "Pretendard", sans-serif; font-size: 1.6rem; }
 .post-faq details { padding: 18px 0; border-top: 1px solid var(--ink); }
@@ -33,6 +36,10 @@
 .post-faq summary { cursor: pointer; font-weight: 700; }
 .post-faq summary::before { content: "Q. "; color: var(--orange); }
 .post-faq details p { max-width: 40ch; margin: 14px 0 0; }
+.post-sources { margin-top: 10vh; }
+.post-sources h2 { font-size: 1.2rem; }
+.post-sources ul { margin: 0; padding-left: 1.2em; }
+.post-sources li { margin-bottom: .7em; }
 .post-pagination { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 12vh; border: 1px solid var(--ink); background: var(--ink); }
 .post-pagination a, .post-pagination > span { min-height: 130px; padding: 22px; background: var(--cream); }
 .post-pagination a:last-child { text-align: right; }

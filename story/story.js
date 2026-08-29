@@ -18,6 +18,25 @@
 
   const hrefFor = (post) => post.url || `post.html?id=${encodeURIComponent(post.id || '')}`;
 
+  const appendInline = (node, source) => {
+    const pattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+    let cursor = 0;
+    let match;
+    while ((match = pattern.exec(source)) !== null) {
+      node.append(document.createTextNode(source.slice(cursor, match.index)));
+      const href = match[2].trim();
+      const link = element('a', 'inline-link', match[1]);
+      link.href = href;
+      if (/^https?:\/\//i.test(href)) {
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+      }
+      node.append(link);
+      cursor = pattern.lastIndex;
+    }
+    node.append(document.createTextNode(source.slice(cursor)));
+  };
+
   const renderList = (posts) => {
     const cards = posts.map((post) => {
       const card = element('article', 'story-card');
@@ -53,7 +72,9 @@
       } else if (/^## /.test(value)) {
         root.append(element('h2', null, value.slice(3).trim()));
       } else {
-        root.append(element('p', null, value));
+        const paragraph = element('p');
+        appendInline(paragraph, value);
+        root.append(paragraph);
       }
     });
     return root;
